@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function TextForm() {
-  const [text, setText] = useState("Type or paste your content here");
+  const [text, setText] = useState("");
   //   setText("Ronit is here!");
 
   const handleOnChange = (event) => {
