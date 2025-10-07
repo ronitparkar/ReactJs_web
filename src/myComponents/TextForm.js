@@ -18,6 +18,11 @@ export default function TextForm() {
     setText(newlowerText);
   };
 
+  const handleClearCase = () => {
+    let newClearText = "";
+    setText(newClearText);
+  };
+
   return (
     <>
       <div className="container mt-5">
@@ -46,6 +51,12 @@ export default function TextForm() {
             onClick={handleLowerCase}
           >
             lowercase
+          </button>
+          <button
+            className="btn btn-primary btn-lg m-3"
+            onClick={handleClearCase}
+          >
+            Clear
           </button>
         </div>
       </div>
