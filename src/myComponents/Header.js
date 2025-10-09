@@ -3,9 +3,11 @@ import PropTypes from "prop-types";
 
 export default function Header(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark">
+    <nav
+      className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`}
+    >
       <div className="container-fluid">
-        <a className="navbar-brand text-light" href="#">
+        <a className="navbar-brand" href="#">
           {props.title}
         </a>
         <button
@@ -22,31 +24,34 @@ export default function Header(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
-                className="nav-link active link-light"
-                aria-current="page"
-                href="#"
-              >
+              <a className="nav-link active" aria-current="page" href="#">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link link-light" href="#">
+              <a className="nav-link" href="#">
                 About
               </a>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
+
+          <div className="form-check form-switch">
             <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+              className="form-check-input "
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
+              onClick={props.toggleMode}
             />
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </form> */}
+            <label
+              className={`form-check-label text-${
+                props.mode === "light" ? "dark" : "light"
+              }`}
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Enable Dark Mode
+            </label>
+          </div>
         </div>
       </div>
     </nav>

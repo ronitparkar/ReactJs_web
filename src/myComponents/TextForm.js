@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function TextForm() {
+export default function TextForm(props) {
   const [text, setText] = useState("");
   //   setText("Ronit is here!");
 
@@ -25,18 +25,30 @@ export default function TextForm() {
 
   return (
     <>
-      <div className="container mt-5">
-        <h4>
-          Accidentally left the caps lock on and typed something, but can't be
-          bothered to start again and retype it all?
+      <div
+        className="container mt-5"
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
+        <h4
+          style={{
+            color: props.mode === "dark" ? "white" : "black",
+          }}
+        >
+          Yeayy! write something in the box.
         </h4>
         <div className="container my-3 p-0">
           <textarea
-            className="form-control text-muted"
+            className="form-control"
             value={text}
             id="mybox"
             rows="8"
             onChange={handleOnChange}
+            style={{
+              backgroundColor: props.mode === "dark" ? "#404040" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
           ></textarea>
         </div>
         <div>
@@ -60,7 +72,12 @@ export default function TextForm() {
           </button>
         </div>
       </div>
-      <div className="container mt-5">
+      <div
+        className="container mt-5"
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+        }}
+      >
         <h4>Your Text Summary</h4>
         <p>
           Character Count: {text.length} , Word Count: {text.split(" ").length}
