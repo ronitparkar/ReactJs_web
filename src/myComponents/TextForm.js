@@ -40,7 +40,7 @@ export default function TextForm(props) {
         </h4>
         <div className="container my-3 p-0">
           <textarea
-            className="form-control"
+            className="form-control "
             value={text}
             id="mybox"
             rows="8"
